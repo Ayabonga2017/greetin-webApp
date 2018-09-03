@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 app.use(express.static('public'));
 
 app.get("/", function(req, res){
-  res.send("greetings");
+  res.send("greetings app");
 });
 
 
