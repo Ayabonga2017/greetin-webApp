@@ -1,24 +1,66 @@
-module.exports = function () {
+function GreetmeFunction(NameStorage) {
 
-    var nameList = [];
-
-    const index = function (req, res) {
-
-        res.send(nameList);
-    };
-
-    const add = function (req, res) {
-
-        // res.send('add greet');
-
-        var name = req.query.name;
-
-        nameList.push(name);
-
-        res.redirect('/greet');
+    var GreetPerson = "";
+    var Countkeep = NameStorage || {};
+    var person="";
+  
+  
+    function setperson(value) {
+      if (value !== "") {
+      return person;
+      }
+  
     }
+  
+    function GreetLanguage(person, language) {
+  
+  
+      if (Countkeep[person] === undefined) {
+  
+        Countkeep[person] = 0;
+      }
+  
+      if (language === "English") {
+  
+        GreetPerson = "Hey, " + person;
+  
+      }
+      if (language === "IsiXhosa") {
+  
+        GreetPerson = "Mhollo, " + person;
+  
+      }
+      if (language === "Afrikaans") {
+  
+        GreetPerson = "Halo, " + person;
+        console.log(language);
+  
+      }
+  
+    }
+  
+  
+    function GreetMe() {
+  
+      return Countkeep;
+    }
+  
+    function GreetedPerson() {
+      return GreetPerson;
+    }
+  
+    function CountPeople() {
+      //console.log(Object.keys(Countkeep).length);
+      return Object.keys(Countkeep).length;
+  
+    }
+  
     return {
-        index,
-        add
+      GreetLanguage,
+      GreetMe,
+      CountPeople,
+      GreetedPerson,
+      setperson
     }
-}
+  }
+  

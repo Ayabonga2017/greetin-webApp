@@ -12,9 +12,6 @@ app.get("/", function (req, res) {
   res.send("greetings app");
 });
 
-app.get('/greet', greetRoutes.index);
-app.get('/greet/add', greetRoutes.add);
-
 
 let PORT = process.env.PORT || 3310;
 app.listen(PORT, function () {

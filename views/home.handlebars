@@ -1,0 +1,72 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" href="css/greet.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+
+</head>
+
+<body>
+
+<form action="greetings"></form>
+  <div class="container box">
+    <header>
+      <h1 class="greet"><h1>GREETINGS</h1>
+    </header>
+    <div class="row">
+      <div class="ten columns">
+
+        <span class="one column"><h5>name</h5></span>
+        <input class="ten columns InputText" id=clearname type="text" placeholder="Enter text here....">
+
+        <span class="counter one column">0</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="twelve columns namegreeted">
+
+      </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <div class="row">
+      <div class="four columns">
+          
+ <input type="radio" name="languageType" class="languageTypeRadio" value="English">
+        <span>English</span>
+      </div>
+
+      <div class="four columns">
+        <input type="radio" name="languageType" class="languageTypeRadio" value="IsiXhosa">
+        <span>IsiXhosa</span>
+      </div>
+
+      <div class="four columns">
+        <input type="radio" name="languageType" class="languageTypeRadio" value="Afrikaans">
+        <span>Afrikaans</span>
+      </div>
+    </div>
+         
+       
+
+    <br>
+    <div class="row">
+      <div class="six columns">
+
+        <button class="button-primary Greetbtn" type="button" name="button">Greet Me</button>
+      </div>
+      <div class="six columns">
+        <button class="button-primary Clearbtn" type="submit" name="button" onclick="document.getElementById('clearname').value = ''">Clear Name</button>
+      </div>
+    </div>
+  </div>
+ </form>
+</body>
+
+<script src="js/greet-factory.js" charset="utf-8"></script>
+<script src="js/greet.js" charset="utf-8"></script>
+
+</html>
