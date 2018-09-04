@@ -25,7 +25,6 @@ app.post('/greetings', function(req, res) {
  var textInput = req.body.textInput;
  var languageType = req.body.languageType;
 
-
   // use the values in the Factory function
 
   greetRoutes.setlang(languageType);
