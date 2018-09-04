@@ -41,7 +41,8 @@ app.post('/display', function (req, res){
 
    // redirect
    res.redirect('/')
-})
+});
+
 
 let PORT = process.env.PORT || 3310;
 app.listen(PORT, function () {
