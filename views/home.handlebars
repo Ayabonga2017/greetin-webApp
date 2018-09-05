@@ -1,7 +1,5 @@
 <body>
 <div class="container box">
-
-  
     <header>
       <h1 class="greet"><h4>GREETINGS</h4>
     </header>
@@ -9,10 +7,9 @@
     <div class="row">
        <form action="/greetings" method="POST">
       <div class="twelve columns">
-
         
         <input class="ten columns InputText" name ="textInput" id=clearname type="text" placeholder="Enter name that you want to greet here....">
-
+</div>
     <br>
     <br>
     <br>
@@ -38,7 +35,7 @@
     <div class="row">
       <div class="six columns">
 
-        <button class="button-primary Greetbtn" type="button" name="button">Greet Me</button>
+        <button class="button-primary Greetbtn" type="submit" name="button">Greet Me</button>
       </div>
       <div class="six columns">
         <button class="button-primary Clearbtn" type="submit" name="button" onclick="document.getElementById('clearname').value = ''">Clear Name</button>
@@ -46,12 +43,12 @@
     </div>
 
     </form>
-        <span class="counter one column">{{counter}}</span>
+
       </div>
   
     <div class="row">
       <p class="eight columns namegreeted" href="/display" name= "displayname" >{{nameDisplay}}</p>
-
+        <span class="counter one column">{{counter}}</span>
       </div>
   </div>
  

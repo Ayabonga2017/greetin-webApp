@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 
 app.get("/", function (req, res) {
    
-  let nameDisplay = greetRoutes.GreetLanguage(greetRoutes.GreetedPerson(),greetRoutes.languagereturn());
+  let nameDisplay = greetRoutes.GreetLanguage(greetRoutes.setperson(),greetRoutes.languagereturn());
 
   let counter = greetRoutes.CountPeople();
   res.render("home", {counter, nameDisplay});
@@ -29,7 +29,7 @@ app.post('/greetings', function(req, res) {
  // get the values from the form (req.body)
  var textInput = req.body.textInput;
  var languageType = req.body.languageType;
-  console.log(textInput);
+  console.log('here',textInput);
   // use the values in the Factory function
 
   greetRoutes.setlang(languageType);
