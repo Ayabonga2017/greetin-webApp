@@ -27,23 +27,31 @@ app.get("/", function (req, res) {
 app.post('/greetings', function(req, res) {
 
  // get the values from the form (req.body)
- var textInput = req.body.textInput;
+ var textInput = req.body.firstname;
  var languageType = req.body.languageType;
   console.log('here',textInput);
   // use the values in the Factory function
 
   greetRoutes.setlang(languageType);
-  greetRoutes.setperson(textInput);
+  greetRoutes.GreetedPerson(textInput);
+
+  var setgreets = {
+    languageType: greetRoutes.languagereturn(),
+    firstname: greetRoutes.setperson()
+
+  };
   
-  // redirect
-  res.redirect('/')
+  // render to home
+  res.render('home',{
+    greetings :setgreets
+  })
 });
 
 app.post('/display', function (req, res){
 
 // get the values from the Factory Function and display them
-  greetRoutes.GreetedPerson();
-  console.log(req.body.textInput);
+  greetRoutes.setperson();
+  console.log(req.body);
    // redirect
    res.redirect('/')
 });

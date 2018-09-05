@@ -5,11 +5,14 @@
     </header>
    
     <div class="row">
-       <form action="/greetings" method="POST">
+       <form action="greetings" method="POST">
       <div class="twelve columns">
         
-        <input class="ten columns InputText" name ="textInput" id=clearname type="text" placeholder="Enter name that you want to greet here....">
+        <input class="ten columns InputText" name ="firstname" id=clearname type="text" placeholder="Enter name that you want to greet here....">
+<span class="counter two column">{{counter}}</span>
 </div>
+
+
     <br>
     <br>
     <br>
@@ -47,8 +50,8 @@
       </div>
   
     <div class="row">
-      <p class="eight columns namegreeted" href="/display" name= "displayname" >{{nameDisplay}}</p>
-        <span class="counter one column">{{counter}}</span>
+      <p class="eight columns namegreeted" href="display" name= "displayname" >{{nameDisplay}}</p>
+        
       </div>
   </div>
  
