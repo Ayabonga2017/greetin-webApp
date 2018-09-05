@@ -1,33 +1,17 @@
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
-  <link rel="stylesheet" href="css/greet.css">
-  <link rel="stylesheet" href="css/skeleton.css">
-
-</head>
-
 <body>
 <div class="container box">
-<form action="greetings"></form>
+
   
     <header>
       <h1 class="greet"><h4>GREETINGS</h4>
     </header>
+   
     <div class="row">
+       <form action="/greetings" method="POST">
       <div class="twelve columns">
 
         <span class="one column"><h5>name</h5></span>
         <input class="ten columns InputText" name ="textInput" id=clearname type="text" placeholder="Enter text here....">
-
-        <span class="counter one column">{{counter}}</span>
-      </div>
-    </div>
-    <div class="row">
-      <p class="eight columns namegreeted" href="/display" name= "displayname" >{{nameDisplay}}</p>
-
-      </div>
-    
 
     <br>
     <br>
@@ -49,9 +33,7 @@
         <span>Afrikaans</span>
       </div>
     </div>
-         
        
-
     <br>
     <div class="row">
       <div class="six columns">
@@ -62,9 +44,16 @@
         <button class="button-primary Clearbtn" type="submit" name="button" onclick="document.getElementById('clearname').value = ''">Clear Name</button>
       </div>
     </div>
+
+    </form>
+        <span class="counter one column">{{counter}}</span>
+      </div>
+    </div>
+    <div class="row">
+      <p class="eight columns namegreeted" href="/display" name= "displayname" >{{nameDisplay}}</p>
+
+      </div>
   </div>
- </form>
+ 
  </div>
 </body>
-
-</html>

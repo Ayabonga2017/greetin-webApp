@@ -43,7 +43,9 @@ module.exports =function GreetmeFunction(NameStorage) {
 
   }
 
-
+function languagereturn(){
+  return language;
+}
   function GreetMe() {
 
     return Countkeep;
@@ -65,6 +67,7 @@ module.exports =function GreetmeFunction(NameStorage) {
     CountPeople,
     GreetedPerson,
     setperson,
-    setlang
+    setlang,
+    languagereturn
   }
 }

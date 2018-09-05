@@ -11,20 +11,25 @@ app.use(express.static('public'));
 app.set('view engine', 'handlebars');
 app.engine('handlebars', exphbs({
   defaultLayout: 'main'}));
-app.get("/", function (req, res) {
 
-  greetRoutes.GreetLanguage();
-  greetRoutes.CountPeople();
-  res.render("home");
+  
+app.use(bodyParser.json());
+
+app.get("/", function (req, res) {
+   
+  let nameDisplay = greetRoutes.GreetLanguage(greetRoutes.GreetedPerson(),greetRoutes.languagereturn());
+
+  let counter = greetRoutes.CountPeople();
+  res.render("home", {counter, nameDisplay});
 });
 
-app.use(bodyParser.json());
+
 app.post('/greetings', function(req, res) {
 
  // get the values from the form (req.body)
  var textInput = req.body.textInput;
  var languageType = req.body.languageType;
-
+  console.log(textInput);
   // use the values in the Factory function
 
   greetRoutes.setlang(languageType);
@@ -38,13 +43,12 @@ app.post('/display', function (req, res){
 
 // get the values from the Factory Function and display them
   greetRoutes.GreetedPerson();
-
+  console.log(req.body.textInput);
    // redirect
    res.redirect('/')
 });
 
-
-let PORT = process.env.PORT || 3310;
+let PORT = process.env.PORT || 31314;
 app.listen(PORT, function () {
   console.log('App starting on port', PORT);
 });

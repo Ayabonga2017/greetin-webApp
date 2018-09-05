@@ -17,13 +17,9 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
-<<<<<<< HEAD
     "express-handlebars": "^3.0.0",
     "handlebars": "^4.0.11",
     "nodemon": "^1.18.4"
-=======
-    "handlebars": "^4.0.11"
->>>>>>> b1655d23f683af1f9d97a44fcbb45f1026db3080
   },
   "devDependencies": {},
   "engines": {
