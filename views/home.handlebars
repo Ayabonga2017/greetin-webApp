@@ -1,58 +1,61 @@
 <body>
-<div class="container box">
+  <div class="container box">
     <header>
-      <h1 class="greet"><h4>GREETINGS</h4>
+      <h1 class="greet">
+        <h4>GREETINGS</h4>
     </header>
-   
+
     <div class="row">
-       <form action="greetings" method="POST">
-      <div class="twelve columns">
+      <form action="greetings" method="post">
+        <div class="twelve columns">
+
+          <input class="ten columns InputText" name="firstname" id=clearname type="text" placeholder="Enter name that you want to greet here....">
+          <span class="counter two column">{{counter}}</span>
+        </div>
+
+
+        <br>
+        <br>
+        <br>
+        <div class="row">
+          <div class="four columns">
+
+            <input type="radio" name="languageType" class="languageTypeRadio" value="English">
+            <span>English</span>
+          </div>
+
+          <div class="four columns">
+            <input type="radio" name="languageType" class="languageTypeRadio" value="IsiXhosa">
+            <span>IsiXhosa</span>
+          </div>
+
+          <div class="four columns">
+            <input type="radio" name="languageType" class="languageTypeRadio" value="Afrikaans">
+            <span>Afrikaans</span>
+          </div>
+        </div>
+
+        <br>
+        <div class="row">
+          <div class="six columns">
+
+            <button class="button-primary Greetbtn" type="submit" name="button">Greet Me</button>
+          </div>
+          </form>
+          <div class="six columns">
+            <button class="button-primary Clearbtn" type="submit" name="button" onclick="document.getElementById('clearname').value = ''">Clear
+              Name</button>
+          </div>
+        </div>
+
         
-        <input class="ten columns InputText" name ="firstname" id=clearname type="text" placeholder="Enter name that you want to greet here....">
-<span class="counter two column">{{counter}}</span>
-</div>
 
-
-    <br>
-    <br>
-    <br>
-    <div class="row">
-      <div class="four columns">
-          
- <input type="radio" name="languageType" class="languageTypeRadio" value="English">
-        <span>English</span>
-      </div>
-
-      <div class="four columns">
-        <input type="radio" name="languageType" class="languageTypeRadio" value="IsiXhosa">
-        <span>IsiXhosa</span>
-      </div>
-
-      <div class="four columns">
-        <input type="radio" name="languageType" class="languageTypeRadio" value="Afrikaans">
-        <span>Afrikaans</span>
-      </div>
-    </div>
-       
-    <br>
-    <div class="row">
-      <div class="six columns">
-
-        <button class="button-primary Greetbtn" type="submit" name="button">Greet Me</button>
-      </div>
-      <div class="six columns">
-        <button class="button-primary Clearbtn" type="submit" name="button" onclick="document.getElementById('clearname').value = ''">Clear Name</button>
-      </div>
     </div>
 
-    </form>
-
-      </div>
-  
     <div class="row">
-      <p class="eight columns namegreeted" href="display" name= "displayname" >{{nameDisplay}}</p>
-        
-      </div>
+      <p class="eight columns namegreeted" href="display" name="displayname">{{nameDisplay}}</p>
+
+    </div>
   </div>
- 
+
 </body>
