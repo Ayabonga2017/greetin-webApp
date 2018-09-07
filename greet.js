@@ -1,73 +1,65 @@
-module.exports =function GreetmeFunction(NameStorage) {
-
-  var GreetPerson = "";
-  var Countkeep = NameStorage || {};
-  var person = "";
+module.exports = function () {
+ 
+  var GreetedNames = {};
+  var GreetingMessage = "";
+  var name ="";
   var language = "";
 
-  function setperson(value) {
-    if (value !== "") {
-      return person;
+
+  var GreetLanguage = function (language, person) {
+
+    // var personName = name;
+
+    // if (personName != "") {
+    //   if (GreetedNames[personName] === undefined) {
+    //     GreetedNames[personName] = 0;
+    //   }
+    // }
+
+    if (language === 'English') {
+      GreetingMessage = "Hallo, " + person;
     }
-
-  }
-  function setlang(value) {
-
-    language = value;
-  }
-
-  function GreetLanguage(person, language) {
-
-
-    if (Countkeep[person] === undefined) {
-
-      Countkeep[person] = 0;
+    if (language === 'IsiXhosa') {
+      GreetingMessage = "Mholo, " + person;
     }
-
-    if (language === "English") {
-
-      GreetPerson = "Hey, " + person;
-
+    if (language === 'English') {
+      GreetingMessage = "Hello, " + person;
     }
-    if (language === "IsiXhosa") {
-
-      GreetPerson = "Mhollo, " + person;
-
-    }
-    if (language === "Afrikaans") {
-
-      GreetPerson = "Halo, " + person;
-      console.log(language);
-
-    }
-
+    return GreetingMessage;
   }
 
-function languagereturn(){
-  return language;
+  function setperson(value) {   
+    name = value;
+
 }
-  function GreetMe() {
+function setlang(value) {
 
-    return Countkeep;
-  }
+  language = value;
+}
+  function LanguageReturn() { return language; }
 
-  function GreetedPerson() {
-    return GreetPerson;
-  }
+  function PersonReturn() { return name; }
 
-  function CountPeople() {
-    //console.log(Object.keys(Countkeep).length);
-    return Object.keys(Countkeep).length;
+  function Message() { return GreetingMessage; }
 
+  function Counter() { return Object.keys(GreetedNames).length; }
+
+  function resetBtn() {
+    GreetedNames = {};
+    GreetingMessage = "";
+    person = "";
   }
 
   return {
     GreetLanguage,
-    GreetMe,
-    CountPeople,
-    GreetedPerson,
+    Message,
+    Counter,
+    LanguageReturn,
+    PersonReturn,
+    resetBtn,
     setperson,
-    setlang,
-    languagereturn
+    setlang
+
   }
+
 }

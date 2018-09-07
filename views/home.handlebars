@@ -1,61 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<title>Greetings webApplication</title>
+
+<meta name="viewport" content="width=device-width">
+
 <body>
   <div class="container box">
-    <header>
-      <h1 class="greet">
-        <h4>GREETINGS</h4>
-    </header>
+    <h1 class="greet">GREETINGS</h1>
 
     <div class="row">
-      <form action="greetings" method="post">
+      <form action="greetings" method="POST">
         <div class="twelve columns">
-
-          <input class="ten columns InputText" name="firstname" id=clearname type="text" placeholder="Enter name that you want to greet here....">
-          <span class="counter two column">{{counter}}</span>
+          <input class="ten columns InputText" name="firstName" id="clearname" type="text" placeholder="Enter name that you want to greet here....">
         </div>
-
-
-        <br>
-        <br>
-        <br>
+   <br>
+    <br>
+    <br>
+    <br>
         <div class="row">
           <div class="four columns">
-
-            <input type="radio" name="languageType" class="languageTypeRadio" value="English">
+            <input type="radio" name="language" class="languageRadio" value="English">
             <span>English</span>
           </div>
-
           <div class="four columns">
-            <input type="radio" name="languageType" class="languageTypeRadio" value="IsiXhosa">
+            <input type="radio" name="language" class="languageRadio" value="IsiXhosa">
             <span>IsiXhosa</span>
           </div>
-
           <div class="four columns">
-            <input type="radio" name="languageType" class="languageTypeRadio" value="Afrikaans">
+            <input type="radio" name="language" class="languageRadio" value="Afrikaans">
             <span>Afrikaans</span>
           </div>
         </div>
-
         <br>
         <div class="row">
-          <div class="six columns">
-
-            <button class="button-primary Greetbtn" type="submit" name="button">Greet Me</button>
+          <div class="twelve columns">
+            <button class="button-primary Greetbtn" type="submit" name="button">Greet </button>
           </div>
-          </form>
-          <div class="six columns">
-            <button class="button-primary Clearbtn" type="submit" name="button" onclick="document.getElementById('clearname').value = ''">Clear
-              Name</button>
           </div>
-        </div>
-
-        
-
+      </form>
+        <div class="row">
+          <div class="twelve columns">{{displaymessage}}</div>
+    
+   <br>
+    <br>
+      <div class="twelve columns">
+        <button class="button-primary Clearbtn" type="submit" name="button" onclick="document.getElementById('clearname').value = ''">Clear   </button>
+      </div>
+      </div>
     </div>
-
-    <div class="row">
-      <p class="eight columns namegreeted" href="display" name="displayname">{{nameDisplay}}</p>
-
-    </div>
-  </div>
-
 </body>
+
+</html>

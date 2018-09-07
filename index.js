@@ -2,61 +2,58 @@ let express = require('express');
 let app = express();
 const exphbs = require('express-handlebars');
 var bodyParser = require('body-parser');
-const GreetRoutes = require('./greet');
-const greetRoutes = GreetRoutes();
-
-
-app.use(express.static('public'));
+const Greet = require('./greet');
+const factory = Greet();
 app.use(express.static('public'));
 app.set('view engine', 'handlebars');
 app.engine('handlebars', exphbs({
-  defaultLayout: 'main'}));
-
-  
+  defaultLayout: 'main'
+}));
 app.use(bodyParser.json());
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({
+  extended: false
+}))
 
 app.get("/", function (req, res) {
-   
-  let nameDisplay = greetRoutes.GreetLanguage(greetRoutes.setperson(),greetRoutes.languagereturn());
 
-  let counter = greetRoutes.CountPeople();
-  res.render("home", {counter, nameDisplay});
+  let counter = factory.Counter();
+  var language = factory.LanguageReturn()
+  res.render("home", { counter, language });
 });
 
+app.post('/greetings', function (req, res) {
 
-app.post('/greetings', function(req, res) {
-
- // get the values from the form (req.body)
- var textInput = req.body.firstname;
- var languageType = req.body.languageType;
-  console.log('here',textInput);
-  // use the values in the Factory function
-
-  greetRoutes.setlang(languageType);
-  greetRoutes.GreetedPerson(textInput);
-
-  var setgreets = {
-    languageType: greetRoutes.languagereturn(),
-    firstname: greetRoutes.setperson()
-
-  };
+  // get the values from the form (req.body)
+  var language = req.body.language;
+  var firstName = req.body.firstName;
   
+  console.log(firstName);
+  console.log(language);
+  // use the values in the Factory function
+  factory.setlang(language);
+  factory.setperson(firstName);
+  var name_language = factory.GreetLanguage(language, firstName)
+
+  let results = {
+
+    language: factory.LanguageReturn(),
+    firstName: factory.PersonReturn()
+  }
+  var displaymessage = factory.Message();
+
+  if (firstName === '' && language === undefined) {
+    return displaymessage = 'Please Enter a Name and Select a Language !';
+  }
+  else if (!language) { return displaymessage = "Please select language"; }
+  else if (firstName === "") { return displaymessage = "Please enter name"; }
+
+
+  console.log(displaymessage);
+  // console.log(results)
   // render to home
-  res.render('home',{
-    greetings :setgreets
-  })
+  res.render('home', {name_language , displaymessage, results})
 });
 
-app.post('/display', function (req, res){
-
-// get the values from the Factory Function and display them
-  greetRoutes.setperson();
-  console.log(req.body);
-   // redirect
-   res.redirect('/')
-});
-
-let PORT = process.env.PORT || 31314;
-app.listen(PORT, function () {
-  console.log('App starting on port', PORT);
-});
+let PORT = process.env.PORT || 911;
+app.listen(PORT, function () { console.log('App starting on port', PORT); });
