@@ -55,5 +55,9 @@ app.post('/greetings', function (req, res) {
   res.render('home', {name_language , displaymessage, results})
 });
 
+<<<<<<< HEAD
 let PORT = process.env.PORT || 9191;
+=======
+let PORT = process.env.PORT || 911;
+>>>>>>> bba33b5f4c3d46fc0c11d34d613020a540a5a7d4
 app.listen(PORT, function () { console.log('App starting on port', PORT); });

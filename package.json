@@ -19,7 +19,10 @@
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
     "handlebars": "^4.0.11",
+<<<<<<< HEAD
     "node": "^10.10.0",
+=======
+>>>>>>> bba33b5f4c3d46fc0c11d34d613020a540a5a7d4
     "nodemon": "^1.18.4"
   },
   "devDependencies": {},
