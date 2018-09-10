@@ -15,6 +15,24 @@ app.use(bodyParser.urlencoded({
   extended: false
 }))
 
+
+const pg = require("pg");
+const Pool = pg.Pool;
+
+// should we use a SSL connection
+let useSSL = false;
+let local = process.env.LOCAL || false;
+if (process.env.DATABASE_URL && !local){
+    useSSL = true;
+}
+// which db connection to use
+const connectionString = process.env.DATABASE_URL || 'postgresql://coder:coder123@localhost:9191/users';
+
+const pool = new Pool({
+    connectionString,
+    ssl : useSSL
+  });
+
 app.get("/", function (req, res) {
 
   let counter = factory.Counter();
@@ -55,9 +73,7 @@ app.post('/greetings', function (req, res) {
   res.render('home', {name_language , displaymessage, results})
 });
 
-<<<<<<< HEAD
 let PORT = process.env.PORT || 9191;
-=======
-let PORT = process.env.PORT || 911;
->>>>>>> bba33b5f4c3d46fc0c11d34d613020a540a5a7d4
 app.listen(PORT, function () { console.log('App starting on port', PORT); });
+
+

@@ -1,32 +1,29 @@
 {
-  "name": "greetings-application",
+  "name": "greetin-webApp-master",
   "version": "1.0.0",
-  "description": "greeting app",
   "main": "index.js",
-  "directories": {
-    "test": "test"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [
-    "heroku"
-  ],
-  "author": "ayabonga",
-  "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
-    "handlebars": "^4.0.11",
-<<<<<<< HEAD
     "node": "^10.10.0",
-=======
->>>>>>> bba33b5f4c3d46fc0c11d34d613020a540a5a7d4
-    "nodemon": "^1.18.4"
+    "nodemon": "^1.18.4",
+    "pg": "^7.4.3"
   },
   "devDependencies": {},
-  "engines": {
-    "node": "v8.0.0"
-  }
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ayabonga2017/greetin-webApp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ayabonga2017/greetin-webApp/issues"
+  },
+  "homepage": "https://github.com/Ayabonga2017/greetin-webApp#readme",
+  "description": ""
 }
