@@ -1,57 +1,62 @@
 module.exports = function () {
- 
-  var GreetedNames = {};
+
+var NameStorage ={};
   var GreetingMessage = "";
-  var name ="";
-  var language = "";
-var counter = 0;
+  var Countkeep = NameStorage || {};
+  var person="";
+var language ="";
 
-  var GreetLanguage = function (language, person) {
-
-    // var personName = name;
-
-    // if (personName != "") {
-    //   if (GreetedNames[personName] === undefined) {
-    //     GreetedNames[personName] = 0;
-    //   }
-    // }
-
-    if (language === 'English') {
-      GreetingMessage = "Hallo, " + person;
-    }
-    if (language === 'IsiXhosa') {
-      GreetingMessage = "Mholo, " + person;
-    }
-    if (language === 'English') {
-      GreetingMessage = "Hello, " + person;
+  function setperson(value) {
+    if (value !== "") {
+    return person;
     }
 
-    counter ++;
-    return GreetingMessage;
   }
 
-  function setperson(value) {   
-    name = value;
+  function GreetLanguage(language,person) {
 
-}
-function setlang(value) {
 
-  language = value;
-}
+    if (Countkeep[person] === undefined) {
+
+      Countkeep[person] = 0;
+    }
+
+    if (language === "English") {
+
+      GreetingMessage = "Hey, " + person;
+
+    }
+    if (language === "IsiXhosa") {
+
+      GreetingMessage = "Mhollo, " + person;
+
+    }
+    if (language === "Afrikaans") {
+
+      GreetingMessage = "Halo, " + person;
+      console.log(language);
+
+    }
+
+  }
+
+  function setlang(value) {language = value;}
   function LanguageReturn() { return language; }
+  function PersonReturn() { return Countkeep; }
+  function Message() { return GreetingMessage;}
+  function Counter() { return Object.keys(Countkeep).length;}
 
-  function PersonReturn() { return name; }
-
-  function Message() { return GreetingMessage; }
-
-  function Counter() { return counter;}
   function resetBtn() {
-    GreetedNames = {};
-    GreetingMessage = "";
-    person = "";
+
+     NameStorage ={};
+     GreetingMessage = "";
+     Countkeep = 0;
+     person="";
+     language ="";
   }
 
   return {
+
     GreetLanguage,
     Message,
     Counter,

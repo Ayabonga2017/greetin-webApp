@@ -74,7 +74,13 @@ app.post('/greetings', function (req, res) {
   res.render('home', {name_language , displaymessage,counterdisplay, results})
 });
 
-let PORT = process.env.PORT || 9191;
+app.get('/resets', function(req ,res ){
+
+  var reset = factory.resetBtn();
+  console.log(reset);
+  res.render("home", {reset})
+})
+let PORT = process.env.PORT || 1991;
 app.listen(PORT, function () { console.log('App starting on port', PORT); });
 
 
