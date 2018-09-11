@@ -4,7 +4,7 @@ module.exports = function () {
   var GreetingMessage = "";
   var name ="";
   var language = "";
-
+var counter = 0;
 
   var GreetLanguage = function (language, person) {
 
@@ -25,6 +25,8 @@ module.exports = function () {
     if (language === 'English') {
       GreetingMessage = "Hello, " + person;
     }
+
+    counter ++;
     return GreetingMessage;
   }
 
@@ -42,8 +44,7 @@ function setlang(value) {
 
   function Message() { return GreetingMessage; }
 
-  function Counter() { return Object.keys(GreetedNames).length; }
-
+  function Counter() { return counter;}
   function resetBtn() {
     GreetedNames = {};
     GreetingMessage = "";

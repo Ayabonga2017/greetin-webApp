@@ -35,9 +35,8 @@ const pool = new Pool({
 
 app.get("/", function (req, res) {
 
-  let counter = factory.Counter();
   var language = factory.LanguageReturn()
-  res.render("home", { counter, language });
+  res.render("home", {language });
 });
 
 app.post('/greetings', function (req, res) {
@@ -59,6 +58,7 @@ app.post('/greetings', function (req, res) {
     firstName: factory.PersonReturn()
   }
   var displaymessage = factory.Message();
+  var counterdisplay= factory.Counter();
 
   if (firstName === '' && language === undefined) {
     return displaymessage = 'Please Enter a Name and Select a Language !';
@@ -68,9 +68,10 @@ app.post('/greetings', function (req, res) {
 
 
   console.log(displaymessage);
+  console.log(counterdisplay);
   // console.log(results)
   // render to home
-  res.render('home', {name_language , displaymessage, results})
+  res.render('home', {name_language , displaymessage,counterdisplay, results})
 });
 
 let PORT = process.env.PORT || 9191;
