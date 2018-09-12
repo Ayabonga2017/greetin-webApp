@@ -1,4 +1,4 @@
-module.exports = function () {
+module.exports = function (pool) {
 
 var NameStorage ={};
   var GreetingMessage = "";
@@ -40,12 +40,21 @@ var language ="";
 
   }
 
+  async function addNameToDB(name){
+
+    await pool.query('insert into users(names, counts) values($1, $2)',[name,0])
+
+  }
+
   function setlang(value) {language = value;}
   function LanguageReturn() { return language; }
   function PersonReturn() { return Countkeep; }
   function Message() { return GreetingMessage;}
-  function Counter() { return Object.keys(Countkeep).length;}
-
+  async function Counter() { 
+    let counter = await pool.query('select count(*) from users')
+    // console.log(counter.rows[0].count)
+    return counter.rows[0].count
+  }
   function resetBtn() {
 
      NameStorage ={};
@@ -64,6 +73,7 @@ var language ="";
     PersonReturn,
     resetBtn,
     setperson,
+    addNameToDB,
     setlang
 
   }
