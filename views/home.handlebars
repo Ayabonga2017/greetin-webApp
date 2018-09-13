@@ -1,18 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <title>Greetings webApplication</title>
-
 <meta name="viewport" content="width=device-width">
-
 <body>
   <div class="container box">
     <h1 class="greet">GREETINGS</h1>
-
     <div class="row">
       <form action="greetings" method="POST">
         <div class="twelve columns">
-          <input class="ten columns InputText" name="firstName" id="clearname" type="text" placeholder="Enter name that you want to greet here....">
+          <input class="ten columns InputText" name="firstName" id="clearname" type="text" placeholder="Enter name ....">
         </div>
         <br>
         <br>
@@ -46,13 +42,15 @@
         <div class="twelve columns">{{counterdisplay}}</div>
       </div>
       <div class="row">
-        <div class="twelve columns" href="/resets" ><button class="button-primary Clearbtn" type="submit" name="button">Clear </button></div>
+        <div class="twelve columns" href="/resets"><button class="button-primary Clearbtn" type="submit" name="button">Clear
+          </button></div>
       </div>
-
-<a  href="/greeted"><div class= "twelve columns">GreetedNames </a></div>
+      <a href="/greeted">
+        <div class="twelve columns">GreetedNames
+      </a>
     </div>
   </div>
   </div>
+  </div>
 </body>
-
 </html>
