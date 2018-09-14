@@ -1,15 +1,27 @@
-<table>
-    
+<html lang="en">
+<title>Greetings webApplication</title>
+<meta name="viewport" content="width=device-width">
 
-    <tr>
-        <th>names</th>
-        <th>counts</th>
-    </tr>
-{{#each users}}
-    <tr>
-        <td>{{names}}</td>
-        <td>{{counts}}</td>
-    </tr>
-    {{/each}}
-</table>
+<body>
+    <table>
+        <tr>
+            <th>names</th>
+            <th>times greeted</th>
+        </tr>
+        {{#each users}}
+        <tr>
+            <td>{{names}}</td>
+            <td>{{counts}}</td>
+        </tr>
+        {{/each}}
+    </table>
+    <form action="reset" method="post">
+    <div class="row">
+        <div class="six columns">
+        <button class="button-primary Clearbtn" type="submit" name="button" >Clear DB</button>
+      </div>
+    </div>
+    </form>
+</body>
 
+</html>

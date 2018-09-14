@@ -61,22 +61,18 @@ app.post('/greetings', async function (req, res, next) {
     res.render('home', { name_language, displaymessage, counterdisplay })
   } catch (error) {
     console.log(error)
-    next(error)
+ next(error)
   }
 });
-app.get('/resets', async function (req, res) {  
-  var reset = factory.resetBtn();
-  console.log(reset);
-  res.render("home", { reset })
+app.post('/reset', async function (req, res) {  
+  let reset = factory.resetBtn();
+  res.render("greeted",{reset})
 })
 app.get('/greeted', async function (req, res) {
   
   let  users = await factory.greetedNames();
   console.log(users);
-
-  res.render("greeted", {
-    users
-  });
+  res.render("greeted", {users})
 })
 let PORT = process.env.PORT || 1991;
 app.listen(PORT, function () { console.log('App starting on port', PORT); });

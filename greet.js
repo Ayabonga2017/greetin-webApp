@@ -16,17 +16,15 @@ module.exports = function (pool) {
   }
   function setlang(value) { language = value; }
   function Message() { return GreetingMessage; }
-  async function Counter() {
-    var counter = await pool.query('select count(*) from users')
-    return counter.rows[0].count
-  }
-  async function greetedNames() {
-    var counter = await pool.query('select * from users  ')
-    return counter.rows;  
-  }
-  function resetBtn() {
-    counter = 0;
-  }
+  
+  async function Counter() { var counter = await pool.query('select count(*) from users')
+    return counter.rows[0].count }
+  async function greetedNames() { var counter = await pool.query('select * from users  ')
+    return counter.rows; }
+
+  async function resetBtn() { var reset = await pool.query('delete from users')
+    return reset; }
+
   return {
     GreetLanguage,
     Message,
