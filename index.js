@@ -50,12 +50,15 @@ app.get("/", async function (req, res, next) {
   }
 });
 app.post('/greetings', async function (req, res, next) {
-  try {
+  try {   
     // get the values from the form (req.body)
     var language = req.body.language;
     var firstName = req.body.firstName;
+    // if(firstName === '')
+    // { req.flash('info' , 'please enter name ')}
     var name_language = await factory.GreetLanguage(language, firstName)
     var displaymessage = factory.Message();
+
     var counterdisplay = await factory.Counter();
     console.log(counterdisplay)
     res.render('home', { name_language, displaymessage, counterdisplay })
@@ -74,5 +77,5 @@ app.get('/greeted', async function (req, res) {
   console.log(users);
   res.render("greeted", {users})
 })
-let PORT = process.env.PORT || 1991;
+let PORT = process.env.PORT || 1985;
 app.listen(PORT, function () { console.log('App starting on port', PORT); });

@@ -8,6 +8,7 @@
     "express-flash": "0.0.2",
     "express-handlebars": "^3.0.0",
     "express-session": "^1.15.6",
+    "flash": "^1.1.0",
     "node": "^10.10.0",
     "nodemon": "^1.18.4",
     "pg": "^7.4.3"
