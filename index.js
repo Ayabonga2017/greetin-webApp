@@ -49,9 +49,13 @@ app.get("/", async function (req, res, next) {
     next(error);
   }
 });
-app.post('/home', async function (req, res) {  
- 
-  res.render("home")
+app.post('/home', async function (req, res ,next) {  
+  
+    var displaymessage = factory.Message();
+
+    var counterdisplay = await factory.Counter();
+    console.log(counterdisplay)
+    res.render('home', { displaymessage, counterdisplay })
 })
 app.post('/greetings', async function (req, res, next) {
   try {   
