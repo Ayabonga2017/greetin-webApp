@@ -18,7 +18,7 @@ module.exports = function (pool) {
       if (language === "Afrikaans") { GreetingMessage = "Halo, " + person; console.log(language); }
       // else if() { GreetingMessage = 'please enter name ' }
     }
-   
+    
   }
   function setlang(value) { language = value; }
   function Message() { return GreetingMessage; }

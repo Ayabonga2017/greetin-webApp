@@ -49,6 +49,10 @@ app.get("/", async function (req, res, next) {
     next(error);
   }
 });
+app.post('/home', async function (req, res) {  
+ 
+  res.render("home")
+})
 app.post('/greetings', async function (req, res, next) {
   try {   
     // get the values from the form (req.body)
