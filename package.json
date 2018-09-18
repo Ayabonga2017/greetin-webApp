@@ -11,7 +11,7 @@
     "flash": "^1.1.0",
     "node": "^10.10.0",
     "nodemon": "^1.18.4",
-    "pg": "^7.4.3"
+    "pg": "7.4.3"
   },
   "devDependencies": {},
   "scripts": {
