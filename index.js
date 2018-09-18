@@ -50,7 +50,6 @@ app.get("/", async function (req, res, next) {
   }
 });
 app.post('/home', async function (req, res ,next) {  
-  
     var displaymessage = factory.Message();
 
     var counterdisplay = await factory.Counter();
