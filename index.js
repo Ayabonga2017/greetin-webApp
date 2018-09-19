@@ -8,13 +8,14 @@ const session = require('express-session');
 
 // initialise session middleware - flash-express depends on it
 app.use(session({
-  secret : "<add a secret string here>",
+  secret: "this line for an error message",
   resave: false,
   saveUninitialized: true
 }));
 
 // initialise the flash middleware
 app.use(flash());
+
 app.use(express.static('public'));
 app.set('view engine', 'handlebars');
 app.engine('handlebars', exphbs({
@@ -42,47 +43,57 @@ const pool = new Pool({
 });
 const factory = Greet(pool);
 app.get("/", async function (req, res, next) {
-  let counts = await factory.Counter()
+  let counts = await factory.Counter();
+
   try {
     res.render("home", { counts });
   } catch (error) {
+    console.log(error)
     next(error);
   }
 });
-app.post('/home', async function (req, res ,next) {  
-    var displaymessage = factory.Message();
+app.post('/home', async function (req, res, next) {
 
-    var counterdisplay = await factory.Counter();
-    console.log(counterdisplay)
-    res.render('home', { displaymessage, counterdisplay })
+  var displaymessage= await factory.GreetLanguage();
+  var counterdisplay = await factory.Counter();
+  res.render('home', { displaymessage, counterdisplay })
 })
 app.post('/greetings', async function (req, res, next) {
-  try {   
+  try {
     // get the values from the form (req.body)
     var language = req.body.language;
     var firstName = req.body.firstName;
-    // if(firstName === '')
-    // { req.flash('info' , 'please enter name ')}
-    var name_language = await factory.GreetLanguage(language, firstName)
-    var displaymessage = factory.Message();
+    console.log(language)
 
-    var counterdisplay = await factory.Counter();
-    console.log(counterdisplay)
-    res.render('home', { name_language, displaymessage, counterdisplay })
+    if (firstName == '') {
+      req.flash('info', 'Please enter a Name');
+    }
+   if (!language) {
+      req.flash('info', 'Please select a Language');
+    } else {
+      var displaymessage = await factory.GreetLanguage(language, firstName);
+      var  counterdisplay= await factory.Counter();
+  }
+         // var counterdisplay = await factory.Counter();
+    // console.log(counterdisplay)
+    // console.log(displaymessage
+    // console.log(language)
+    res.render('home', {displaymessage,counterdisplay})
   } catch (error) {
     console.log(error)
- next(error)
+    next(error)
   }
 });
-app.post('/reset', async function (req, res) {  
+app.post('/reset', async function (req, res) {
   let reset = factory.resetBtn();
-  res.render("greeted",{reset})
+  res.render("greeted", { reset })
 })
 app.get('/greeted', async function (req, res) {
-  
-  let  users = await factory.greetedNames();
-  console.log(users);
-  res.render("greeted", {users})
+
+  let users = await factory.greetedNames();
+  // console.log(users);
+  res.render("greeted", { users })
 })
+
 let PORT = process.env.PORT || 1985;
 app.listen(PORT, function () { console.log('App starting on port', PORT); });

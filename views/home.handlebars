@@ -2,11 +2,13 @@
 <html lang="en">
 <title>Greetings webApplication</title>
 <meta name="viewport" content="width=device-width">
+
 <body>
   <div class="container box">
     <h1 class="greet">GREETINGS</h1>
-    <div class="row">
+    
       <form action="greetings" method="POST">
+        <div class="row">
         <div class="twelve columns">
           <input class="ten columns InputText" name="firstName" id="clearname" type="text" placeholder="Enter name ....">
         </div>
@@ -36,17 +38,25 @@
         </div>
       </form>
       <div class="row">
-        <div class="twelve columns">{{displaymessage}}{{message.info}}</div>
+        {{#if messages.info}}
+        <div class="entry">
+          <p> {{messages.info}}</p>
+        </div>
+        {{/if}}
       </div>
+
+      <div class="row">
+        <div class="twelve columns">{{displaymessage}}</div>
+      </div>
+
       <div class="row">
         <div class="twelve columns">{{counterdisplay}}</div>
       </div>
-
-      <a href="/greeted">
-        <div class="twelve columns">GreetedNames</a>
+      <div class="twelve columns">
+        <p><a href="/greeted">GreetedNames</a></p>
+      </div>
     </div>
   </div>
-  </div>
-  </div>
 </body>
+
 </html>
