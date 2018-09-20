@@ -35,8 +35,8 @@ let local = process.env.LOCAL || false;
 if (process.env.DATABASE_URL && !local) {
   useSSL = true;
 }
-// which db connection to use
-const connectionString = process.env.DATABASE_URL || 'postgresql://postgres:mlandeli2017@localhost:5555/greetings';
+// which db connection to usecoder123
+const connectionString = process.env.DATABASE_URL || 'postgresql://codex:coder123@localhost:5432/greets';
 const pool = new Pool({
   connectionString,
   ssl: useSSL
@@ -56,10 +56,10 @@ app.get("/", async function (req, res, next) {
 app.post('/home', async function (req, res, next) {
 
   try {
-    var displaymessage= await factory.GreetLanguage();
+  await factory.GreetLanguage();
   var counterdisplay = await factory.Counter();
 
-  res.render('home', { displaymessage, counterdisplay })
+  res.render('home', { counterdisplay })
   } catch (error) {
     next(error)
   }
@@ -80,7 +80,6 @@ app.post('/greetings', async function (req, res, next) {
       var displaymessage = await factory.GreetLanguage(language, firstName);
       var  counterdisplay= await factory.Counter();
   }
-
     res.render('home', {displaymessage,counterdisplay})
   } catch (error) {
  
