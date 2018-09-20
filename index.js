@@ -43,20 +43,26 @@ const pool = new Pool({
 });
 const factory = Greet(pool);
 app.get("/", async function (req, res, next) {
-  let counts = await factory.Counter();
 
   try {
+    let counts = await factory.Counter();
     res.render("home", { counts });
   } catch (error) {
-    console.log(error)
+
     next(error);
   }
+  
 });
 app.post('/home', async function (req, res, next) {
 
-  var displaymessage= await factory.GreetLanguage();
+  try {
+    var displaymessage= await factory.GreetLanguage();
   var counterdisplay = await factory.Counter();
+
   res.render('home', { displaymessage, counterdisplay })
+  } catch (error) {
+    next(error)
+  }
 })
 app.post('/greetings', async function (req, res, next) {
   try {
@@ -74,26 +80,33 @@ app.post('/greetings', async function (req, res, next) {
       var displaymessage = await factory.GreetLanguage(language, firstName);
       var  counterdisplay= await factory.Counter();
   }
-         // var counterdisplay = await factory.Counter();
-    // console.log(counterdisplay)
-    // console.log(displaymessage
-    // console.log(language)
+
     res.render('home', {displaymessage,counterdisplay})
   } catch (error) {
-    console.log(error)
+ 
     next(error)
   }
 });
-app.post('/reset', async function (req, res) {
-  let reset = factory.resetBtn();
+app.post('/reset', async function (req, res, next) {
+  try {
+    let reset = await factory.resetBtn();
+    
   res.render("greeted", { reset })
-})
-app.get('/greeted', async function (req, res) {
+  } catch (error) {
+    next(error)
+  }
 
-  let users = await factory.greetedNames();
-  // console.log(users);
-  res.render("greeted", { users })
+})
+app.get('/greeted', async function (req, res, next) {
+try {
+  let greetings = await factory.greetedNames();
+ 
+  res.render("greeted", { greetings })
+} catch (error) {
+  
+  next(error)
+}
 })
 
-let PORT = process.env.PORT || 1985;
+let PORT = process.env.PORT || 50501;
 app.listen(PORT, function () { console.log('App starting on port', PORT); });
