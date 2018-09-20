@@ -1,7 +1,9 @@
 module.exports = function (pool) {
 
   async function GreetLanguage(language, person) {
-
+if(person ==''){
+  return 'enter name ';
+}
     let result = await pool.query('select * from users where names = $1', [person])
     if (result.rows.length === 0) {
       await pool.query('insert into users(names, counts) values($1, $2)', [person, 1])
@@ -9,7 +11,9 @@ module.exports = function (pool) {
 
       await pool.query("update users set counts=counts+1 where names=$1", [person]);
     }
-
+if(!language){
+  return 'select language';
+}
     if (language === "English") { return "Hey, " + person; }
     if (language === "IsiXhosa") { return "Mhollo, " + person; }
     if (language === "Afrikaans") { return "Halo, " + person; }

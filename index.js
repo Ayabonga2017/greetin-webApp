@@ -52,11 +52,15 @@ app.get("/", async function (req, res, next) {
     next(error);
   }
 });
-app.post('/home', async function (req, res, next) {
+app.post("/home" ,async function (req , res){
 
-  var displaymessage= await factory.GreetLanguage();
-  var counterdisplay = await factory.Counter();
-  res.render('home', { displaymessage, counterdisplay })
+  res.render("home")
+} )
+app.get('/home', async function (req, res, next) {
+
+  // var displaymessage = await factory.GreetLanguage();
+  // var counterdisplay = await factory.Counter();
+  res.render('home', { })
 })
 app.post('/greetings', async function (req, res, next) {
   try {
@@ -65,26 +69,30 @@ app.post('/greetings', async function (req, res, next) {
     var firstName = req.body.firstName;
     console.log(language)
 
-    if (firstName == '') {
-      req.flash('info', 'Please enter a Name');
+    if (firstName == '' || firstName == undefined) {
+      req.flash('info', ' enter a name first');
+
     }
-   if (!language) {
-      req.flash('info', 'Please select a Language');
-    } else {
-      var displaymessage = await factory.GreetLanguage(language, firstName);
-      var  counterdisplay= await factory.Counter();
-  }
-         // var counterdisplay = await factory.Counter();
-    // console.log(counterdisplay)
-    // console.log(displaymessage
-    // console.log(language)
-    res.render('home', {displaymessage,counterdisplay})
+    if (!language) {
+      req.flash('info', ' select a language');
+    }
+
+    var results = {
+      displaymessage: factory.GreetLanguage(),
+      counterdisplay: factory.Counter()
+    }
+    console.log(firstName);
+  var  displaymessage= await factory.GreetLanguage(language,firstName);
+
+    res.render('home', { results , displaymessage})
+
   } catch (error) {
     console.log(error)
     next(error)
   }
 });
 app.post('/reset', async function (req, res) {
+
   let reset = factory.resetBtn();
   res.render("greeted", { reset })
 })

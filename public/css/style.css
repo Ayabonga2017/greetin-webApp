@@ -28,13 +28,13 @@
   color: red;
 }
 .entry:hover{
-  font-size: 30px;
+  font-size: 21px;
   color: green;
 }
 .radiobtn{
   color: aqua;
 }
 .radiobtn:hover{
-  font-size: 30px;
+  font-size: 21px;
   color: yellow;
 }
