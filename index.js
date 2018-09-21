@@ -47,8 +47,7 @@ app.get("/", async function (req, res, next) {
 
   try {
  
-    let counts = await factory.Counter();
-    res.render("home", { counts});
+    res.render("home");
   } catch (error) {
 
     next(error);
@@ -58,10 +57,9 @@ app.get("/", async function (req, res, next) {
 app.post('/home', async function (req, res, next) {
 
   try {
-    let namegreeted = await factory.greetedwithL()
-  var counterdisplay = await factory.Counter();
+    let namegreeted = await factory.greetedNames()
 
-  res.render('home', { counterdisplay ,namegreeted})
+  res.render('home', { namegreeted})
   } catch (error) {
     next(error)
   }
@@ -73,16 +71,16 @@ app.post('/greetings', async function (req, res, next) {
     var firstName = req.body.firstName;
     console.log(language)
 
+    if (!language && firstName !=='') {
+      req.flash('info', ' select a language');
+    }  
     if (firstName == '') {
       req.flash('info', ' enter a name ');
     }
-   if (!language) {
-      req.flash('info', ' select a language');
-    } else {
-      var displaymessage = await factory.GreetLanguage(language, firstName);
-      var  counterdisplay= await factory.Counter();
-  }
-    res.render('home', {displaymessage,counterdisplay})
+      var  counterdisplay = await factory.Counter()
+    var displaymessage = await factory.GreetLanguage(language, firstName);
+    // var counterdisplay = await factory.Counter()
+    res.render('home', {displaymessage ,counterdisplay})
   } catch (error) {
  
     next(error)
