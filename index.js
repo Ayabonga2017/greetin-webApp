@@ -74,10 +74,10 @@ app.post('/greetings', async function (req, res, next) {
     console.log(language)
 
     if (firstName == '') {
-      req.flash('info', 'Please enter a Name');
+      req.flash('info', ' enter a name ');
     }
    if (!language) {
-      req.flash('info', 'Please select a Language');
+      req.flash('info', ' select a language');
     } else {
       var displaymessage = await factory.GreetLanguage(language, firstName);
       var  counterdisplay= await factory.Counter();
