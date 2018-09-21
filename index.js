@@ -106,6 +106,16 @@ try {
   next(error)
 }
 })
+app.post('/home', async function (req, res, next) {
+
+  try {
+    let namegreeted = await factory.greetedNames()
+
+  res.render('home', { namegreeted})
+  } catch (error) {
+    next(error)
+  }
+})
 
 let PORT = process.env.PORT || 50501;
 app.listen(PORT, function () { console.log('App starting on port', PORT); });
