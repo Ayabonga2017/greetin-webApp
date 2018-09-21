@@ -45,8 +45,9 @@ const factory = Greet(pool);
 app.get("/", async function (req, res, next) {
 
   try {
+ 
     let counts = await factory.Counter();
-    res.render("home", { counts });
+    res.render("home", { counts});
   } catch (error) {
 
     next(error);
@@ -56,10 +57,10 @@ app.get("/", async function (req, res, next) {
 app.post('/home', async function (req, res, next) {
 
   try {
-  await factory.GreetLanguage();
+    let namegreeted = await factory.greetedwithL()
   var counterdisplay = await factory.Counter();
 
-  res.render('home', { counterdisplay })
+  res.render('home', { counterdisplay ,namegreeted})
   } catch (error) {
     next(error)
   }
