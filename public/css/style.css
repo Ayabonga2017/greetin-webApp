@@ -27,6 +27,17 @@
   font-size: 20px;
   color: red;
 }
+.counter{
+    font-size: 15px;
+    color: red;
+  
+
+}
+.greeted{
+    font-size: 15px;
+    color: green;
+    border: 50%
+}
 .entry:hover{
   font-size: 20px;
   color: green;

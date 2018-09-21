@@ -37,6 +37,8 @@
           </div>
         </div>
       </form>
+      <br>
+
       <div class="row">
         {{#if messages.info}}
         <div class="entry">
@@ -44,16 +46,15 @@
         </div>
         {{/if}}
       </div>
-
-      <div class="row">
-        <div class="twelve columns">{{displaymessage}}</div>
+      <div class="row twelve columns"><b>
+        <div class="six columns greeted" >.{{displaymessage}}</div>
+         <div class="six columns counter">Counter :{{counterdisplay}}</div></b>
       </div>
+<br>
 
-      <div class="row">
-        <div class="twelve columns">{{counterdisplay}}</div>
-      </div>
-      <div class="twelve columns">
-        <p><a href="/greeted">GreetedNames</a></p>
+      <br>
+      <div class="twelve columns"> 
+        <p><a href="/greeted">click here to view Greeted names</a></p>
       </div>
     </div>
   </div>
