@@ -24,19 +24,34 @@
   text-transform: capitalize;
 }
 .entry{
-  font-size: 20px;
+  font-size: 15px;
   color: red;
+  text-align: center;
 }
 .counter{
-    font-size: 15px;
-    color: red;
+  padding: 0.60em;
+  border-radius : 0.1em;
+  border : 1px solid #ddd;
+  height: auto;
+  margin-bottom: 1em;
+  color: red;
+  width: 50%
   
 
 }
-.greeted{
-    font-size: 15px;
+.view{
+  font-size: 15px;
     color: green;
     border: 50%
+}
+.greeted{
+  padding: 0.60em;
+  border-radius : 0.1em;
+  border : 1px solid #ddd;
+  height: auto;
+  margin-bottom: 1em;
+
+  color: green;
 }
 .entry:hover{
   font-size: 20px;

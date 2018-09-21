@@ -40,21 +40,22 @@
       <br>
 
       <div class="row">
+      
         {{#if messages.info}}
-        <div class="entry">
-          <p> {{messages.info}}</p>
+         <b> <div class="entry">
+          <p> {{messages.info}}</p></b>
         </div>
         {{/if}}
       </div>
       <div class="row twelve columns"><b>
-        <div class="six columns greeted" >.{{displaymessage}}</div>
-         <div class="six columns counter">Counter :{{counterdisplay}}</div></b>
+        <div class="six columns greeted" >message : {{displaymessage}}</div>
+         <div class="six columns counter">counter : {{counterdisplay}}</div></b>
       </div>
 <br>
 
       <br>
       <div class="twelve columns"> 
-        <p><a href="/greeted">click here to view Greeted names</a></p>
+        <p class="view"><a href="/greeted">click here to view Greeted names</a></p>
       </div>
     </div>
   </div>
