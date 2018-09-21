@@ -36,6 +36,7 @@ if (process.env.DATABASE_URL && !local) {
   useSSL = true;
 }
 // which db connection to usecoder123
+
 const connectionString = process.env.DATABASE_URL || 'postgresql://codex:coder123@localhost:5432/greets';
 const pool = new Pool({
   connectionString,
