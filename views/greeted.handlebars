@@ -13,10 +13,10 @@
             <th>names</th>
             <th>times greeted</th>
         </tr>
-        {{#each users}}
+        {{#each greetings}}
         <tr>
-            <td>{{names}}</td>
-            <td>{{counts}}</td>
+            <td class="greeted" ><a href='/counter:codex'>{{names}}</a></td>
+            <td class="counter">{{counts}}</td>
         </tr>
         {{/each}}
     </table>
