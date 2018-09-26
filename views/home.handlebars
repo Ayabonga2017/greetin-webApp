@@ -4,15 +4,19 @@
 <meta name="viewport" content="width=device-width">
 
 <body>
+
   <div class="container box">
-    <h1 class="greet">GREETINGS</h1>
-    
+   
+    <h1 class="home">GREETINGS</h1>
+    <br>
       <form action="greetings" method="POST">
+      
         <div class="row">
-        <div class="twelve columns">
-          <input class="ten columns InputText" name="firstName" id="clearname" type="text" placeholder="Enter name ....">
+          <div class="three columns"> name</div>
+        <div class="nine columns "> 
+         <p><input class="ten columns InputText text" name="firstName" id="clearname" type="text" placeholder="Enter name ....">
+        </p> 
         </div>
-        <br>
         <br>
         <br>
         <br>
@@ -31,29 +35,35 @@
           </div>
         </div>
         <br>
+        <br>
         <div class="row">
           <div class="twelve columns">
             <button class="button-primary Greetbtn" type="submit" name="button">Greet </button>
           </div>
         </div>
       </form>
+      <br>
+
       <div class="row">
+      
         {{#if messages.info}}
-        <div class="entry">
-          <p> {{messages.info}}</p>
+         <b> <div class="entry">
+          <p> {{messages.info}}</p></b>
         </div>
         {{/if}}
+     
+      <div class="row twelve columns"><b>
+        <div class="seven columns greeted" >message : {{displaymessage}}</div>
+         <div class="five columns counter">counter : {{counterdisplay}}</div></b>
       </div>
+<br>
 
-      <div class="row">
-        <div class="twelve columns">{{displaymessage}}</div>
-      </div>
+      <br>
+      <br>
 
-      <div class="row">
-        <div class="twelve columns">{{counterdisplay}}</div>
-      </div>
-      <div class="twelve columns">
-        <p><a href="/greeted">GreetedNames</a></p>
+      <br>
+      <div class="twelve columns "> 
+        <p class="view"><a href="/greeted">click here to view Greeted names</a></p>
       </div>
     </div>
   </div>
