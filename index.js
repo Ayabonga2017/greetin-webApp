@@ -54,13 +54,6 @@ app.get("/", async function (req, res, next) {
   }
   
 });
-<<<<<<< HEAD
-app.post("/home" ,async function (req , res){
-
-  try {
-    let namegreeted = await factory.greetedNames()
-=======
->>>>>>> 298d38c3a7ac7d79557b366af47abf6e73b779e5
 
 app.post('/greetings', async function (req, res, next) {
   try {
@@ -123,7 +116,7 @@ app.post('/home', async function (req, res, next) {
 
   try {
     var  counterdisplay = await factory.Counter();
-
+s
   res.render('home', {counterdisplay})
   } catch (error) {
     next(error)
