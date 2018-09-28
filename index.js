@@ -54,16 +54,7 @@ app.get("/", async function (req, res, next) {
   }
   
 });
-app.post('/home', async function (req, res, next) {
 
-  try {
-    let namegreeted = await factory.greetedNames()
-
-  res.render('home', { namegreeted})
-  } catch (error) {
-    next(error)
-  }
-})
 app.post('/greetings', async function (req, res, next) {
   try {
     // get the values from the form (req.body)
@@ -76,10 +67,10 @@ app.post('/greetings', async function (req, res, next) {
     }  
     if (firstName == '') {
       req.flash('info', ' enter a name ');
-    }
-      var  counterdisplay = await factory.Counter()
-    var displaymessage = await factory.GreetLanguage(language, firstName);
-    // var counterdisplay = await factory.Counter()
+    }else{
+      var displaymessage = await factory.GreetLanguage(language, firstName);
+      var  counterdisplay = await factory.Counter();
+    }   
     res.render('home', {displaymessage ,counterdisplay})
   } catch (error) {
  
@@ -106,12 +97,27 @@ try {
   next(error)
 }
 })
+app.get('/many', function(req, res){
+  res.render('many', {insertData:factory.greetedNames()})
+})
+
+app.get('/counter/:firstName', async function(req, res , next){
+  try{
+  let names = req.params.firstName;
+  let selected = await factory.greetedwithL(names);
+  let counts = selected[0].counts;
+  res.render('many', {counts , names})
+} catch (error) {
+    
+  next(error)
+}
+})
 app.post('/home', async function (req, res, next) {
 
   try {
-    let namegreeted = await factory.greetedNames()
+    var  counterdisplay = await factory.Counter();
 
-  res.render('home', { namegreeted})
+  res.render('home', {counterdisplay})
   } catch (error) {
     next(error)
   }

@@ -17,6 +17,7 @@
          <p><input class="ten columns InputText text" name="firstName" id="clearname" type="text" placeholder="Enter name ....">
         </p> 
         </div>
+        </div>
         <br>
         <br>
         <br>
@@ -48,13 +49,17 @@
       
         {{#if messages.info}}
          <b> <div class="entry">
-          <p> {{messages.info}}</p></b>
-        </div>
+          <p> {{messages.info}}</p></div></b> 
+        
+ 
         {{/if}}
-     
-      <div class="row twelve columns"><b>
+     </div>
+
+     <div class="row ">
+      <div class=" twelve columns"><b>
         <div class="seven columns greeted" >message : {{displaymessage}}</div>
          <div class="five columns counter">counter : {{counterdisplay}}</div></b>
+      </div>
       </div>
 <br>
 

@@ -8,19 +8,17 @@
             <button class="button-primary Greetbtn" type="submit" name="button">home </button>
           </div>
         </div></form>
-    <table>
-        <tr>
-            <th>names</th>
-            <th>times greeted</th>
-        </tr>
-        {{#each greetings}}
-        <tr>
-            <td class="greeted" ><a href='/counter/{{names}}'>{{names}}</a></td>
-            <td class="counter">{{counts}}</td>
-        </tr>
-        {{/each}}
-    </table>
-    <form action="reset" method="post">
+      
+        
+            <p>Hello , {{names}} has been greet {{counts}} time(s)</p>
+     
+    
+ <form action="/greeted" method="get"> <div class="row">
+          <div class="twelve columns">
+            <button class="button-primary Greetbtn" type="submit" name="button">back to greeted names </button>
+          </div>
+        </div></form>
+    <form action="/reset" method="post">
     <div class="row">
         <div class="six columns">
         <button class="button-primary Clearbtn" type="submit" name="button" >Clear DB</button>
