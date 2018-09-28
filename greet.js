@@ -1,26 +1,26 @@
 module.exports = function (pool) {
 
   async function GreetLanguage(language, person) {
-
+let greeted= '';
     let result = await pool.query('select * from greetings where names = $1', [person])
       if (person !=='') { }
       if (language == undefined) {  }
-      if (result.rows.length === 0) {
+      if (result.rows.length == 0) {
       if (person !== '') { await pool.query('insert into greetings(names, counts) values($1, $2)', [person, 1])}
   }  else {
       await pool.query("update greetings set counts=counts+1 where names=$1", [person]);
     } 
      if ( person !=='') { } 
      else {  
-     if (language === "English") { "Hey, " + person; }
-     if (language === "IsiXhosa") { "Mhollo, " + person; }
-     if (language === "Afrikaans") { "Halo, " + person; }
+     if (language === "English")  {return "Hey, " + person; }
+     if (language === "IsiXhosa") {return "Mhollo, " + person; }
+     if (language === "Afrikaans") { return "Halo, " + person; }
      }
       
   }
 async function greetedwithL(name){
   let greeted = await pool.query('select * from greetings where names =$1 ',[name])
-  return  greeted.rows1;
+  return  greeted.rows;
 }
   async function Counter() {
     var counter = await pool.query('select count(*) from greetings ')
@@ -30,6 +30,7 @@ async function greetedwithL(name){
     var counter = await pool.query('select * from greetings  ')
     return counter.rows;
   }
+ 
   async function resetBtn() {
     var reset = await pool.query('delete from greetings ')
     return reset;

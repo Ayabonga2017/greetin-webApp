@@ -1,0 +1,36 @@
+{
+  "name": "ayabongagreetingswebapp",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ayabonga2017/greetin-webApp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ayabonga2017/greetin-webApp/issues"
+  },
+  "homepage": "https://github.com/Ayabonga2017/greetin-webApp#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "express-flash": "0.0.2",
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.15.6",
+    "knex": "^0.15.2",
+    "mocha": "^5.2.0",
+    "node": "^10.10.0",
+    "nodemon": "^1.18.4",
+    "pg": "^7.4.3"
+  },
+  "devDependencies": {
+    "commander": "^2.18.0",
+    "dotenv": "^6.0.0"
+  },
+  "description": ""
+}

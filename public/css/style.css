@@ -1,9 +1,11 @@
 .box {
-  padding: 0.75em;
+  padding: 0.85em;
   border-radius : 0.5em;
   border : 1px solid #ddd;
   height: auto;
   margin-bottom: 1em;
+  background-color: lightgoldenrodyellow;
+  text-align-last: center;
 }
 
 .warning {
@@ -22,19 +24,62 @@
 }
 .InputText{
   text-transform: capitalize;
+  text-align: center
 }
 .entry{
-  font-size: 20px;
+  font-size: 15px;
   color: red;
+  text-align: center;
+}
+.counter ,.text{
+  padding: 0.60em;
+  border-radius : 0.1em;
+  border : 1px solid #ddd;
+  height: auto;
+  margin-bottom: 1em;
+  color: red;
+  width: 50%;
+  text-align: center;
+  background-color: wheat;
+  
+
+}
+.view{
+  font-size: 15px;
+    color: green;
+    border: 50%;
+    text-align: center;
+  
+}
+.greeted{
+  padding: 0.60em;
+  border-radius : 0.1em;
+  border : 1px solid #ddd;
+  height: auto;
+  margin-bottom: 1em;
+ 
+  color: green;
+  background-color: wheat;
 }
 .entry:hover{
+<<<<<<< HEAD
   font-size: 21px;
+=======
+  font-size: 20px;
+>>>>>>> 298d38c3a7ac7d79557b366af47abf6e73b779e5
   color: green;
 }
 .radiobtn{
   color: aqua;
 }
 .radiobtn:hover{
+<<<<<<< HEAD
   font-size: 21px;
+=======
+  font-size: 20px;
+>>>>>>> 298d38c3a7ac7d79557b366af47abf6e73b779e5
   color: yellow;
+}
+.home{
+  text-align: center;
 }
