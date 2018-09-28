@@ -35,32 +35,34 @@ let local = process.env.LOCAL || false;
 if (process.env.DATABASE_URL && !local) {
   useSSL = true;
 }
-// which db connection to use
-const connectionString = process.env.DATABASE_URL || 'postgresql://postgres:mlandeli2017@localhost:5555/greetings';
+// which db connection to usecoder123
+
+const connectionString = process.env.DATABASE_URL || 'postgresql://codex:coder123@localhost:5432/greets';
 const pool = new Pool({
   connectionString,
   ssl: useSSL
 });
 const factory = Greet(pool);
 app.get("/", async function (req, res, next) {
-  let counts = await factory.Counter();
 
   try {
-    res.render("home", { counts });
+ 
+    res.render("home");
   } catch (error) {
-    console.log(error)
+
     next(error);
   }
+  
 });
 app.post("/home" ,async function (req , res){
 
-  res.render("home")
-} )
-app.get('/home', async function (req, res, next) {
+  try {
+    let namegreeted = await factory.greetedNames()
 
-  // var displaymessage = await factory.GreetLanguage();
-  // var counterdisplay = await factory.Counter();
-  res.render('home', { })
+  res.render('home', { namegreeted})
+  } catch (error) {
+    next(error)
+  }
 })
 app.post('/greetings', async function (req, res, next) {
   try {
@@ -69,39 +71,61 @@ app.post('/greetings', async function (req, res, next) {
     var firstName = req.body.firstName;
     console.log(language)
 
-    if (firstName == '' || firstName == undefined) {
-      req.flash('info', ' enter a name first');
-
-    }
-    if (!language) {
+    if (!language && firstName !=='') {
       req.flash('info', ' select a language');
+    }  
+    if (firstName == '') {
+      req.flash('info', ' enter a name ');
     }
-
-    var results = {
-      displaymessage: factory.GreetLanguage(),
-      counterdisplay: factory.Counter()
-    }
-    console.log(firstName);
-  var  displaymessage= await factory.GreetLanguage(language,firstName);
-
-    res.render('home', { results , displaymessage})
-
+      var  counterdisplay = await factory.Counter();
+      var displaymessage = await factory.GreetLanguage(language, firstName);
+    // var counterdisplay = await factory.Counter()
+    res.render('home', {displaymessage ,counterdisplay})
   } catch (error) {
-    console.log(error)
+ 
     next(error)
   }
 });
-app.post('/reset', async function (req, res) {
-
-  let reset = factory.resetBtn();
+app.post('/reset', async function (req, res, next) {
+  try {
+    let reset = await factory.resetBtn();
+    
   res.render("greeted", { reset })
-})
-app.get('/greeted', async function (req, res) {
+  } catch (error) {
+    next(error)
+  }
 
-  let users = await factory.greetedNames();
-  // console.log(users);
-  res.render("greeted", { users })
+})
+app.get('/greeted', async function (req, res, next) {
+try {
+  let greetings = await factory.greetedNames();
+ 
+  res.render("greeted", { greetings })
+} catch (error) {
+  
+  next(error)
+}
+})
+app.get('/counter:codex', async function (req, res, next) {
+  try {
+    let greetings = await factory.greetedwithL();
+   
+    res.render("many", { greetings })
+  } catch (error) {
+    
+    next(error)
+  }
+  })
+app.post('/home', async function (req, res, next) {
+
+  try {
+    let namegreeted = await factory.greetedNames()
+
+  res.render('home', { namegreeted})
+  } catch (error) {
+    next(error)
+  }
 })
 
-let PORT = process.env.PORT || 1985;
+let PORT = process.env.PORT || 50501;
 app.listen(PORT, function () { console.log('App starting on port', PORT); });
