@@ -62,22 +62,14 @@
   background-color: wheat;
 }
 .entry:hover{
-<<<<<<< HEAD
   font-size: 21px;
-=======
-  font-size: 20px;
->>>>>>> 298d38c3a7ac7d79557b366af47abf6e73b779e5
   color: green;
 }
 .radiobtn{
   color: aqua;
 }
 .radiobtn:hover{
-<<<<<<< HEAD
   font-size: 21px;
-=======
-  font-size: 20px;
->>>>>>> 298d38c3a7ac7d79557b366af47abf6e73b779e5
   color: yellow;
 }
 .home{
