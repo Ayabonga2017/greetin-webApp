@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
+
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Ayabonga2017/greetin-webApp.git"
@@ -32,5 +33,8 @@
     "commander": "^2.18.0",
     "dotenv": "^6.0.0"
   },
-  "description": ""
+  "description": "[![Build Status](https://travis-ci.org/Ayabonga2017/greetin-webApp.svg?branch=master)](https://travis-ci.org/Ayabonga2017/greetin-webApp)",
+  "directories": {
+    "test": "test"
+  }
 }
