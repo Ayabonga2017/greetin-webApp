@@ -13,7 +13,7 @@ let greeted= '';
      if ( person !=='') { } 
      else {  
      if (language === "English")  {return "Hey, " + person; }
-     if (language === "IsiXhosa") {return "Mhollo, " + person; }
+     if (language === "IsiXhosa") {return "Molo, " + person; }
      if (language === "Afrikaans") { return "Halo, " + person; }
      }
       
