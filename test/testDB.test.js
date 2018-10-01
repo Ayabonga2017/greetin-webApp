@@ -21,7 +21,6 @@ describe('The basic database web app', function(){
         // the Factory Function is called Greet
         let greetEng = Greetfactory(pool);
 
-
         assert.equal("Hey, Ayabonga", await greetEng.GreetLanguage("English", "Ayabonga"));
 
     });
