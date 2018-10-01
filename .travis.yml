@@ -1,13 +1,14 @@
 language: node_js
 
 env:
-  - DATABASE_URL || 'postgresql://codex:coder123@localhost:5432/greetings_tests';
+  - DATABASE_URL || 'postgresql://coder:coder123@localhost:5432/greetings_tests';
 
 node_js:  
   - "8.9.4"
 
 before_script:
   - psql -c 'create database  greetings_tests;' -U postgres
+  - psql -c "CREATE USER coder WITH PASSWORD 'coder123';" -U postgres
   - psql -U postgres -d greetings_tests -a -f table.sql
 
 addons:
