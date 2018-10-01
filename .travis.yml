@@ -13,3 +13,8 @@ before_script:
   - psql -c "CREATE USER coder WITH PASSWORD 'coder123';" -U postgres
   - psql -U postgres -d greetings_tests -a -f table.sql
 
+  
+addons:
+    apt:
+    packages:
+    - postgresql-server-dev-9.2
