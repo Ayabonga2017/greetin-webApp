@@ -23,7 +23,7 @@ describe('The basic database web app', function(){
 
        await greetEng.GreetLanguage("Aya", 'English');
 
-        assert.equal(2, await greetEng.Counter());
+        assert.equal(1, await greetEng.Counter());
 
     });
 
