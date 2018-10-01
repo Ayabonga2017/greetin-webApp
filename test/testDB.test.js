@@ -28,6 +28,18 @@ describe('The basic database web app', function(){
 
     });
 
+    it('should return 1 for the counter if the same name has been greeted twice ', async function(){
+
+        // the Factory Function is called Greet
+        let greetEng = Greetfactory(pool);
+
+       await greetEng.GreetLanguage("Aya", 'English');
+       
+
+        assert.equal("hey , Ayabonga", await greetEng.GreetLanguage());
+
+    });
+
     after(function(){
         pool.end();
     })
