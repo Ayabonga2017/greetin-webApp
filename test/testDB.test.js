@@ -16,11 +16,12 @@ describe('The basic database web app', function(){
         await pool.query('delete from greetings');
     });
 
-    it('should greet Ayabonga in English ', async function(){
+    it('should return 1 for the counter if the same name has been greeted twice ', async function(){
 
         // the Factory Function is called Greet
         let greetEng = Greetfactory(pool);
 
+       await greetEng.GreetLanguage("Aya", 'English');
        await greetEng.GreetLanguage("Aya", 'English');
 
         assert.equal(1, await greetEng.Counter());
