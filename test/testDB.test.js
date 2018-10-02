@@ -36,7 +36,7 @@ describe('The basic database web app', function(){
        await greetEng.GreetLanguage("Ayabonga", 'English');
        
 
-        assert.equal("hey , Ayabonga", await greetEng.GreetLanguage());
+        assert.equal("hey , Ayabonga", await greetEng.greetedwithL());
 
     });
     it('should return " halo Aya"  when Ayabonga is greeted in Afrikaans ', async function(){
@@ -47,7 +47,7 @@ describe('The basic database web app', function(){
        await greetEng.GreetLanguage("Aya", 'Afrikaans');
        
 
-        assert.equal("Halo , Aya", await greetEng.GreetLanguage());
+        assert.equal("Halo , Aya", await greetEng.greetedwithL());
 
     });
 
