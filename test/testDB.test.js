@@ -33,20 +33,19 @@ describe('The basic database web app', function(){
         // the Factory Function is called Greet
         let greetEng = Greetfactory(pool);
 
-       await greetEng.GreetLanguage("English", 'Ayabonga');
+      
+       console.log( await greetEng.GreetLanguage("English", 'Ayabonga'))
    
-        assert.equal("hey , Ayabonga" , await greetEng.GreetLanguage ());
+        assert.equal("hey , Ayabonga" , await greetEng.GreetLanguage("English", 'Ayabonga'));
 
     });
-    it('should fail to greet Aya in Afrikaans ', async function(){
+    it('should  greet Aya in Afrikaans ', async function(){
 
         // the Factory Function is called Greet
         let greetEng = Greetfactory(pool);
 
-       await greetEng.GreetLanguage("Aya", 'Afrikaans');
-       
-
-       assert.equal("hey , Aya" , await greetEng.GreetLanguage ());
+     
+       assert.equal("halo , Aya" , await greetEng.GreetLanguage("Afrikaans", 'Aya'));
 
     });
 
