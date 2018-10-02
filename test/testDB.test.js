@@ -34,9 +34,9 @@ describe('The basic database web app', function(){
         let greetEng = Greetfactory(pool);
 
        await greetEng.GreetLanguage("Ayabonga", 'English');
-       
+        let name = await greetEng.greetedwithL( 'Ayabonga');
 
-        assert.equal("hey , Ayabonga", await greetEng.greetedwithL());
+        assert.equal("hey , Ayabonga", name);
 
     });
     it('should return " halo Aya"  when Ayabonga is greeted in Afrikaans ', async function(){
