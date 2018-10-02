@@ -4,13 +4,13 @@ const pg = require("pg");
 const Pool = pg.Pool;
 
 // we are using a special test database for the tests
-const connectionString = process.env.DATABASE_URL || 'postgresql://localhost:5432/greetings_tests';
+const connectionString = process.env.DATABASE_URL || 'postgresql://coder:coder123@localhost:5432/greetings_tests';
 
 const pool = new Pool({
     connectionString
 });
 
-describe('The basic database web app', function(){
+describe('The basic database web app tests', function(){
     beforeEach(async function(){
         // clean the tables before each test run
         await pool.query('delete from greetings');
@@ -34,15 +34,18 @@ describe('The basic database web app', function(){
         let greetEng = Greetfactory(pool);
 
        
-        assert.equal("hey , Ayabonga" , await greetEng.GreetLanguage("English", 'Ayabonga'));
+        assert.equal("Hey, Ayabonga" , await greetEng.GreetLanguage("English", 'Ayabonga'));
 
     });
     it('should  greet Aya in Afrikaans ', async function(){
 
         // the Factory Function is called Greet
         let greetEng = Greetfactory(pool);
+
         let greet = await greetEng.GreetLanguage("Afrikaans", 'Aya');
-       assert.equal("halo , Aya" , greet);
+        
+       assert.equal("Halo, Aya" , greet);
+      
 
     });
 
@@ -56,6 +59,16 @@ describe('The basic database web app', function(){
        await greetEng.GreetLanguage("Ala", 'English');
        
         assert.equal(3, await greetEng.Counter());
+        
+    });
+    it('should return nothing if no one i greeted', async function(){
+
+        // the Factory Function is called Greet
+        let greetEng = Greetfactory(pool);
+
+        let greet = await greetEng.GreetLanguage("");
+     
+       assert.equal( "Please enter a name and choose a language",greet);
 
     });
     after(function(){
