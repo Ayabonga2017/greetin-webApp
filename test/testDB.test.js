@@ -61,7 +61,7 @@ describe('The basic database web app tests', function(){
         assert.equal(3, await greetEng.Counter());
         
     });
-    it('should return nothing if no one i greeted', async function(){
+    it('should return nothing if no one is greeted', async function(){
 
         // the Factory Function is called Greet
         let greetEng = Greetfactory(pool);
