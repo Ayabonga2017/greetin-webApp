@@ -97,9 +97,9 @@ try {
   next(error)
 }
 })
-app.get('/many', function(req, res){
-  res.render('many', {insertData:factory.greetedNames()})
-})
+// app.get('/many', function(req, res){
+//   res.render('many', {insertData:factory.greetedNames()})
+// })
 
 app.get('/counter/:firstName', async function(req, res , next){
   try{
@@ -116,7 +116,7 @@ app.post('/home', async function (req, res, next) {
 
   try {
     var  counterdisplay = await factory.Counter();
-s
+
   res.render('home', {counterdisplay})
   } catch (error) {
     next(error)

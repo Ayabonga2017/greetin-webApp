@@ -28,18 +28,42 @@ describe('The basic database web app', function(){
 
     });
 
-    it('should return 1 for the counter if the same name has been greeted twice ', async function(){
+    it('should return  " hey Ayabonga "  when Ayabonga is greeted in English  ', async function(){
 
         // the Factory Function is called Greet
         let greetEng = Greetfactory(pool);
 
-       await greetEng.GreetLanguage("Aya", 'English');
+       await greetEng.GreetLanguage("Ayabonga", 'English');
        
 
         assert.equal("hey , Ayabonga", await greetEng.GreetLanguage());
 
     });
+    it('should return " halo Aya"  when Ayabonga is greeted in Afrikaans ', async function(){
 
+        // the Factory Function is called Greet
+        let greetEng = Greetfactory(pool);
+
+       await greetEng.GreetLanguage("Aya", 'Afrikaans');
+       
+
+        assert.equal("Halo , Aya", await greetEng.GreetLanguage());
+
+    });
+
+    it('should greet 3 people and return 3 for the Counter ', async function(){
+
+        // the Factory Function is called Greet
+        let greetEng = Greetfactory(pool);
+
+       await greetEng.GreetLanguage("Aya", 'Afrikaans');
+       await greetEng.GreetLanguage("Asa", 'IsiXhosa');
+       await greetEng.GreetLanguage("Ala", 'English');
+       
+
+        assert.equal(3, await greetEng.Counter());
+
+    });
     after(function(){
         pool.end();
     })
