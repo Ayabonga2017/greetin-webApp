@@ -2,8 +2,8 @@ module.exports = function (pool) {
 
   async function GreetLanguage(language, person) {
 
-    if (!person || !language) {
-      return 'Please enter a name and choose a language';
+    if ( !language) {
+      return ""
     }
 
     let result = await pool.query('select * from greetings where names = $1', [person])
@@ -15,7 +15,7 @@ module.exports = function (pool) {
     }
 
     if (person !== '') {
-
+      
       if (language === "English") { return "Hey, " + person; }
       if (language === "IsiXhosa") { return "Molo, " + person; }
       if (language === "Afrikaans") { return "Halo, " + person; }

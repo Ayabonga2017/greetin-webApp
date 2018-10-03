@@ -3,11 +3,19 @@
 <meta name="viewport" content="width=device-width">
 
 <body>
-  <form action="/home" method="POST"> <div class="row">
-          <div class="twelve columns">
-            <button class="button-primary Greetbtn" type="submit" name="button">home </button>
+    <div class=" row">
+  <form action="/home" method="POST"> 
+          <div class="two columns">
+            <button class="button-primary Greetbtn" type="submit" name="button">HOME </button>
           </div>
-        </div></form>
+        </form>
+        
+          <form action="reset" method="post">
+                 <div class="two columns">
+        <button class="button-primary Clearbtn" type="submit" name="" >CLEAR</button>
+      </div>
+    </div>
+    </form>
     <table>
         <tr>
             <th>names</th>
@@ -20,13 +28,7 @@
         </tr>
         {{/each}}
     </table>
-    <form action="reset" method="post">
-    <div class="row">
-        <div class="six columns">
-        <button class="button-primary Clearbtn" type="submit" name="button" >Clear DB</button>
-      </div>
-    </div>
-    </form>
+  
 </body>
 
 </html>

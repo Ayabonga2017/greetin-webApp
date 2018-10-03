@@ -68,7 +68,7 @@ describe('The basic database web app tests', function(){
 
         let greet = await greetEng.GreetLanguage("");
      
-       assert.equal( "Please enter a name and choose a language",greet);
+       assert.equal( "",greet);
 
     });
     after(function(){

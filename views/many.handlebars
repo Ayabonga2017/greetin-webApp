@@ -3,28 +3,34 @@
 <meta name="viewport" content="width=device-width">
 
 <body>
-  <form action="/home" method="POST"> <div class="row">
-          <div class="twelve columns">
-            <button class="button-primary Greetbtn" type="submit" name="button">home </button>
+  <div class="container box">
+<div class=" row">
+  <form action="/home" method="POST"> 
+          <div class="six columns">
+            <button class="button-primary Greetbtn" type="submit" name="button">HOME </button>
           </div>
-        </div></form>
-      
+        </form>
         
-            <p>Hello , {{names}} has been greet {{counts}} time(s)</p>
-     
+          <form action="/reset" method="post">
+                 <div class="six columns">
+        <button class="button-primary Clearbtn" type="submit" name="" >CLEAR</button>
+      </div>
+      </form>
+    </div>
     
+    <br>
+    <br>
+
+            <p>Hello , {{names}} has been greet {{counts}} time(s)</p>
+            
+     <br>
+    <br>
  <form action="/greeted" method="get"> <div class="row">
           <div class="twelve columns">
-            <button class="button-primary Greetbtn" type="submit" name="button">back to greeted names </button>
+            <button class="button-primary Greetbtn" type="submit" name="button">BACK </button>
           </div>
         </div></form>
-    <form action="/reset" method="post">
-    <div class="row">
-        <div class="six columns">
-        <button class="button-primary Clearbtn" type="submit" name="button" >Clear DB</button>
-      </div>
-    </div>
-    </form>
+</div>
 </body>
 
 </html>

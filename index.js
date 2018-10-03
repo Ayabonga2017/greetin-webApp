@@ -123,5 +123,5 @@ app.post('/home', async function (req, res, next) {
   }
 })
 
-let PORT = process.env.PORT || 50501;
+let PORT = process.env.PORT || 2020;
 app.listen(PORT, function () { console.log('App starting on port', PORT); });
