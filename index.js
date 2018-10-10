@@ -43,17 +43,7 @@ const pool = new Pool({
   ssl: useSSL
 });
 const factory = Greet(pool);
-app.get("/", async function (req, res, next) {
-
-  try {
- 
-    res.render("home");
-  } catch (error) {
-
-    next(error);
-  }
-  
-});
+app.get("/");
 
 app.post('/greetings', async function (req, res, next) {
   try {
