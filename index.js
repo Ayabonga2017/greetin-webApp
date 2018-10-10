@@ -6,6 +6,7 @@ const Greet = require('./greet');
 const flash = require('express-flash');
 const session = require('express-session');
 
+
 // initialise session middleware - flash-express depends on it
 app.use(session({
   secret: "this line for an error message",
@@ -42,31 +43,13 @@ const pool = new Pool({
   connectionString,
   ssl: useSSL
 });
+const greetRoutes = require('./greetings-routes');
+const  myRoutes = Routes();
+const greetRoutes =greetRoutes(myRoutes); 
 const factory = Greet(pool);
-app.get("/");
+app.get("/",greetRoutes.index);
 
-app.post('/greetings', async function (req, res, next) {
-  try {
-    // get the values from the form (req.body)
-    var language = req.body.language;
-    var firstName = req.body.firstName;
-    console.log(language)
-
-    if (!language && firstName !=='') {
-      req.flash('info', ' select a language');
-    }  
-    if (firstName == '') {
-      req.flash('info', ' enter a name ');
-    }else{
-      var displaymessage = await factory.GreetLanguage(language, firstName);
-      var  counterdisplay = await factory.Counter();
-    }   
-    res.render('home', {displaymessage ,counterdisplay})
-  } catch (error) {
- 
-    next(error)
-  }
-});
+app.post('/greetings', );
 app.post('/reset', async function (req, res, next) {
   try {
     let reset = await factory.resetBtn();
